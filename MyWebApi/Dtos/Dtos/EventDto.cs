@@ -1,8 +1,8 @@
 using MyWebApi.Enums;
 
-namespace MyWebApi.Models;
+namespace MyWebApi.Dtos;
 
-public class Event
+public class EventDto
 {
     public Guid Id { get; set; }
     public required string Title { get; set; }
@@ -12,7 +12,5 @@ public class Event
     public EventStatus Status { get; set; }
     public EventCategory Category { get; set; }
     public Guid LocationId { get; set; }
-    public Location? Location { get; set; }
-    public ICollection<EventParticipant> EventParticipants { get; set; } = new List<EventParticipant>();
-    public ICollection<Session> Sessions { get; set; } = new List<Session>();
+    public LocationDto? Location { get; set; }
 }
