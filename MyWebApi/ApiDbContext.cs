@@ -9,16 +9,26 @@ public class ApiDbContext : DbContext
     {
     }
 
-    public DbSet<Product> Products { get; set; }
-    public DbSet<Client> Clients { get; set; }
-    public DbSet<Adresse> Adresses { get; set; }
-    public DbSet<Commande> Commandes { get; set; }
+    public DbSet<Event> Events { get; set; }
+    public DbSet<Participant> Participants { get; set; }
+    public DbSet<EventParticipant> EventParticipants { get; set; }
+    public DbSet<Session> Sessions { get; set; }
+    public DbSet<Speaker> Speakers { get; set; }
+    public DbSet<SessionSpeaker> SessionSpeakers { get; set; }
+    public DbSet<Location> Locations { get; set; }
+    public DbSet<Room> Rooms { get; set; }
+    public DbSet<Rating> Ratings { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new ProductConfiguration());
-        modelBuilder.ApplyConfiguration(new ClientConfiguration());
-        modelBuilder.ApplyConfiguration(new AdresseConfiguration());
-        modelBuilder.ApplyConfiguration(new CommandeConfiguration());
+        modelBuilder.ApplyConfiguration(new EventConfiguration());
+        modelBuilder.ApplyConfiguration(new ParticipantConfiguration());
+        modelBuilder.ApplyConfiguration(new EventParticipantConfiguration());
+        modelBuilder.ApplyConfiguration(new SessionConfiguration());
+        modelBuilder.ApplyConfiguration(new SpeakerConfiguration());
+        modelBuilder.ApplyConfiguration(new SessionSpeakerConfiguration());
+        modelBuilder.ApplyConfiguration(new LocationConfiguration());
+        modelBuilder.ApplyConfiguration(new RoomConfiguration());
+        modelBuilder.ApplyConfiguration(new RatingConfiguration());
     }
 }
