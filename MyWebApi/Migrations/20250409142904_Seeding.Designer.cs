@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyWebApi;
 
@@ -11,9 +12,11 @@ using MyWebApi;
 namespace MyWebApi.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    partial class ApiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250409142904_Seeding")]
+    partial class Seeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,56 +62,56 @@ namespace MyWebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9a9ac21d-d3fd-4328-aecd-6199d9dcdb9c"),
+                            Id = new Guid("25181606-8e58-4887-8bd9-48b8ce366488"),
                             Category = 2,
                             Description = "Une conférence sur les dernières technologies.",
-                            EndDate = new DateTime(2025, 4, 21, 14, 56, 52, 159, DateTimeKind.Utc).AddTicks(1925),
-                            LocationId = new Guid("37eec1f4-8065-4618-af41-18908e2d6ba4"),
-                            StartDate = new DateTime(2025, 4, 19, 14, 56, 52, 159, DateTimeKind.Utc).AddTicks(1579),
+                            EndDate = new DateTime(2025, 4, 21, 14, 29, 3, 734, DateTimeKind.Utc).AddTicks(8836),
+                            LocationId = new Guid("c63c2ea5-e595-4117-9b31-6cfe25352cfc"),
+                            StartDate = new DateTime(2025, 4, 19, 14, 29, 3, 734, DateTimeKind.Utc).AddTicks(8488),
                             Status = 3,
                             Title = "Conférence Tech 2024"
                         },
                         new
                         {
-                            Id = new Guid("28d823c4-9479-46b5-a617-0b3ab68dc944"),
+                            Id = new Guid("39477d27-ecf5-46fd-a55f-01ada64791dc"),
                             Category = 1,
                             Description = "Un festival avec des artistes internationaux.",
-                            EndDate = new DateTime(2025, 5, 1, 14, 56, 52, 159, DateTimeKind.Utc).AddTicks(3125),
-                            LocationId = new Guid("e75bd409-ab31-4c34-852e-da21f1a6f78b"),
-                            StartDate = new DateTime(2025, 4, 29, 14, 56, 52, 159, DateTimeKind.Utc).AddTicks(3123),
+                            EndDate = new DateTime(2025, 5, 1, 14, 29, 3, 735, DateTimeKind.Utc).AddTicks(166),
+                            LocationId = new Guid("ee6da3af-5665-4fd1-af42-99b4d36b18c5"),
+                            StartDate = new DateTime(2025, 4, 29, 14, 29, 3, 735, DateTimeKind.Utc).AddTicks(164),
                             Status = 1,
                             Title = "Festival de Musique"
                         },
                         new
                         {
-                            Id = new Guid("3b8f2ed8-7c47-4857-bdda-2baf611d2491"),
+                            Id = new Guid("7b5122d3-ff71-4875-b7df-b2becaf69912"),
                             Category = 3,
                             Description = "Une exposition mettant en avant des artistes contemporains.",
-                            EndDate = new DateTime(2025, 4, 24, 14, 56, 52, 159, DateTimeKind.Utc).AddTicks(3129),
-                            LocationId = new Guid("b96d3a32-5282-44f7-991f-f8ef8f4c2b4e"),
-                            StartDate = new DateTime(2025, 4, 14, 14, 56, 52, 159, DateTimeKind.Utc).AddTicks(3128),
+                            EndDate = new DateTime(2025, 4, 24, 14, 29, 3, 735, DateTimeKind.Utc).AddTicks(185),
+                            LocationId = new Guid("8388ff8f-e3e5-40df-bf0f-11b492adf401"),
+                            StartDate = new DateTime(2025, 4, 14, 14, 29, 3, 735, DateTimeKind.Utc).AddTicks(184),
                             Status = 4,
                             Title = "Exposition d'Art Moderne"
                         },
                         new
                         {
-                            Id = new Guid("f6cd1b82-23e7-4542-af72-c7cba3ea6d61"),
+                            Id = new Guid("50a75421-bc08-40ab-be9f-62de815a940a"),
                             Category = 6,
                             Description = "Un atelier pour apprendre les bases de la programmation.",
-                            EndDate = new DateTime(2025, 5, 10, 14, 56, 52, 159, DateTimeKind.Utc).AddTicks(3132),
-                            LocationId = new Guid("8a7d9357-7a30-4202-9f2d-ec990d73bd8f"),
-                            StartDate = new DateTime(2025, 5, 9, 14, 56, 52, 159, DateTimeKind.Utc).AddTicks(3131),
+                            EndDate = new DateTime(2025, 5, 10, 14, 29, 3, 735, DateTimeKind.Utc).AddTicks(188),
+                            LocationId = new Guid("10306fb9-0da9-44d4-9501-72aee3f6c215"),
+                            StartDate = new DateTime(2025, 5, 9, 14, 29, 3, 735, DateTimeKind.Utc).AddTicks(187),
                             Status = 5,
                             Title = "Atelier de Programmation"
                         },
                         new
                         {
-                            Id = new Guid("c77070f8-cdf8-4163-b9df-379e0a56bd40"),
+                            Id = new Guid("89f792fd-5ff2-42b6-a227-e9eacc55f3d2"),
                             Category = 8,
                             Description = "Un gala pour collecter des fonds pour une bonne cause.",
-                            EndDate = new DateTime(2025, 5, 20, 14, 56, 52, 159, DateTimeKind.Utc).AddTicks(3134),
-                            LocationId = new Guid("fe40065e-f27d-4af5-ac10-0a057706c261"),
-                            StartDate = new DateTime(2025, 5, 19, 14, 56, 52, 159, DateTimeKind.Utc).AddTicks(3134),
+                            EndDate = new DateTime(2025, 5, 20, 14, 29, 3, 735, DateTimeKind.Utc).AddTicks(191),
+                            LocationId = new Guid("de717324-48d7-4378-8289-cc549af91f98"),
+                            StartDate = new DateTime(2025, 5, 19, 14, 29, 3, 735, DateTimeKind.Utc).AddTicks(190),
                             Status = 0,
                             Title = "Gala de Charité"
                         });
@@ -167,7 +170,7 @@ namespace MyWebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("37eec1f4-8065-4618-af41-18908e2d6ba4"),
+                            Id = new Guid("c63c2ea5-e595-4117-9b31-6cfe25352cfc"),
                             Address = "123 Rue des Événements",
                             Capacity = 500,
                             City = "Paris",
@@ -176,7 +179,7 @@ namespace MyWebApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e75bd409-ab31-4c34-852e-da21f1a6f78b"),
+                            Id = new Guid("ee6da3af-5665-4fd1-af42-99b4d36b18c5"),
                             Address = "456 Avenue des Sports",
                             Capacity = 20000,
                             City = "Lyon",
@@ -185,7 +188,7 @@ namespace MyWebApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b96d3a32-5282-44f7-991f-f8ef8f4c2b4e"),
+                            Id = new Guid("8388ff8f-e3e5-40df-bf0f-11b492adf401"),
                             Address = "789 Rue des Loisirs",
                             Capacity = 300,
                             City = "Marseille",
@@ -194,7 +197,7 @@ namespace MyWebApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8a7d9357-7a30-4202-9f2d-ec990d73bd8f"),
+                            Id = new Guid("10306fb9-0da9-44d4-9501-72aee3f6c215"),
                             Address = "101 Rue des Arts",
                             Capacity = 800,
                             City = "Bordeaux",
@@ -203,7 +206,7 @@ namespace MyWebApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("fe40065e-f27d-4af5-ac10-0a057706c261"),
+                            Id = new Guid("de717324-48d7-4378-8289-cc549af91f98"),
                             Address = "202 Avenue des Foires",
                             Capacity = 10000,
                             City = "Toulouse",
@@ -243,7 +246,7 @@ namespace MyWebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d109c4a7-4c3b-47e8-8730-b98f85c0534c"),
+                            Id = new Guid("f4afa46d-a8b1-494b-bc6b-366107dce7c3"),
                             Company = "TechCorp",
                             Email = "alice.dupont@example.com",
                             FirstName = "Alice",
@@ -252,7 +255,7 @@ namespace MyWebApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ad298354-8252-4cea-a2c4-e2a4b7fc4129"),
+                            Id = new Guid("f601e270-2dde-4f5c-9e2c-44bcff3a2bfc"),
                             Company = "MusicWorld",
                             Email = "bob.martin@example.com",
                             FirstName = "Bob",
@@ -261,7 +264,7 @@ namespace MyWebApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("827fb3cc-fd8c-4512-af83-a70dca585b83"),
+                            Id = new Guid("cb0ff6db-1f86-4962-8d79-2973e2a36936"),
                             Company = "ArtExpo",
                             Email = "charlie.durand@example.com",
                             FirstName = "Charlie",
@@ -270,7 +273,7 @@ namespace MyWebApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("bd7a9079-b959-4ada-a9b4-d2ae69eaed41"),
+                            Id = new Guid("f3a42b35-1e96-44a8-942a-3b65b7c5eb0c"),
                             Company = "CodeAcademy",
                             Email = "diane.moreau@example.com",
                             FirstName = "Diane",
@@ -279,7 +282,7 @@ namespace MyWebApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("741945ae-cc1d-4ccd-95c0-40848df54752"),
+                            Id = new Guid("75e908b5-745a-4c1f-8044-62084e3acb8e"),
                             Company = "CharityOrg",
                             Email = "eve.lemoine@example.com",
                             FirstName = "Eve",

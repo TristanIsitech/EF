@@ -1,24 +1,38 @@
 using MyWebApi;
 using Microsoft.EntityFrameworkCore;
 using MyWebApi.Services;
+using MyWebApi.Repositories;
+using MyWebApi.Utils.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<EventService>();
-
-builder.Services.AddControllers();
-
-builder.Services.AddDbContext<ApiDbContext>(options =>
+builder.Services.AddControllers(options =>
 {
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+    options.Filters.Add(new ValidateModelAttribute());
 });
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Services
+builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<ILocationService, LocationService>();
+
+// Repository
+builder.Services.AddScoped<IEventRepository, EventRepository>();
+
+
+
+builder.Services.AddScoped<ILocationRepository, LocationRepository>();
+
+// Ajouter le contexte de base de données
+builder.Services.AddDbContext<ApiDbContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 30))));
+
 var app = builder.Build();
 
+// Configurer le pipeline HTTP
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -26,9 +40,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

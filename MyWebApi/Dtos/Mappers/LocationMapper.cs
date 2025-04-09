@@ -1,4 +1,3 @@
-// Dtos/Mappers/LocationMapper.cs
 using MyWebApi.Dtos;
 using MyWebApi.Models;
 
@@ -31,5 +30,16 @@ public static class LocationMapper
             Capacity = dto.Capacity
         };
     }
-}
 
+    public static Location ToModel(LocationRequestDto requestDto)
+    {
+        return new Location
+        {
+            Name = requestDto.Name,
+            Address = requestDto.Address,
+            City = requestDto.City,
+            Country = requestDto.Country,
+            Capacity = requestDto.Capacity
+        };
+    }
+}

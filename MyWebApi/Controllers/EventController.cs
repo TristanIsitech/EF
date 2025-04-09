@@ -8,9 +8,9 @@ namespace MyWebApi.Controllers;
 [Route("api/[controller]")]
 public class EventController : ControllerBase
 {
-    private readonly EventService _eventService;
+    private readonly IEventService _eventService;
 
-    public EventController(EventService eventService)
+    public EventController(IEventService eventService)
     {
         _eventService = eventService;
     }
@@ -18,6 +18,9 @@ public class EventController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateEvent([FromBody] EventRequestDto request)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
         var createdEvent = await _eventService.CreateEventAsync(request);
         return CreatedAtAction(nameof(GetEventById), new { id = createdEvent.Id }, createdEvent);
     }
@@ -42,7 +45,8 @@ public class EventController : ControllerBase
     public async Task<IActionResult> GetEventById(Guid id)
     {
         var eventDto = await _eventService.GetEventByIdAsync(id);
-        if (eventDto == null) return NotFound();
+        if (eventDto == null)
+            return NotFound();
 
         return Ok(eventDto);
     }
