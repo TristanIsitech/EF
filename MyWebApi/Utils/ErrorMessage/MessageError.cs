@@ -1,6 +1,6 @@
 namespace MyWebApi.Utils.ErrorMessage;
 
-public static class ErrorMessage
+public static class MessageError
 {
     public const string RequiredField = "Ce champ est obligatoire.";
     public const string MaxLengthExceeded = "La longueur maximale autorisée est de {0} caractères.";

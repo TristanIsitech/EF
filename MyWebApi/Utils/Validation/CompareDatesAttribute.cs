@@ -16,16 +16,16 @@ public class CompareDatesAttribute : ValidationAttribute
     protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
         if (value is not DateTime currentValue)
-            return new ValidationResult(ErrorMessage.PropertyNotFound);
+            return new ValidationResult(MessageError.PropertyNotFound);
 
         var property = validationContext.ObjectType.GetProperty(_comparisonProperty);
         if (property == null)
-            return new ValidationResult(string.Format(MyWebApi.Utils.ErrorMessage.PropertyNotFound, _comparisonProperty));
+            return new ValidationResult(string.Format(MessageError.PropertyNotFound, _comparisonProperty));
 
         var comparisonValue = (DateTime)property.GetValue(validationContext.ObjectInstance)!;
 
         if (currentValue <= comparisonValue)
-            return new ValidationResult(MyWebApi.Utils.ErrorMessage.EndDateBeforeStartDate);
+            return new ValidationResult(MessageError.EndDateBeforeStartDate);
 
         return ValidationResult.Success;
     }

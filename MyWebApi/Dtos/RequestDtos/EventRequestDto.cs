@@ -7,26 +7,26 @@ namespace MyWebApi.Dtos;
 
 public class EventRequestDto
 {
-    [Required(ErrorMessage = ErrorMessage.RequiredField)]
-    [StringLength(100, ErrorMessage = ErrorMessage.MaxLengthExceeded)]
+    [Required(ErrorMessage = MessageError.RequiredField)]
+    [StringLength(100, ErrorMessage = MessageError.MaxLengthExceeded)]
     public required string Title { get; set; }
 
-    [StringLength(500, ErrorMessage = ErrorMessage.MaxLengthExceeded)]
+    [StringLength(500, ErrorMessage = MessageError.MaxLengthExceeded)]
     public string? Description { get; set; }
 
-    [Required(ErrorMessage = ErrorMessage.RequiredField)]
+    [Required(ErrorMessage = MessageError.RequiredField)]
     public DateTime StartDate { get; set; }
 
-    [Required(ErrorMessage = ErrorMessage.RequiredField)]
-    [CompareDates("StartDate", ErrorMessage = ErrorMessage.EndDateBeforeStartDate)]
+    [Required(ErrorMessage = MessageError.RequiredField)]
+    [CompareDates("StartDate", ErrorMessage = MessageError.EndDateBeforeStartDate)]
     public DateTime EndDate { get; set; }
 
-    [Required(ErrorMessage = ErrorMessage.RequiredField)]
+    [Required(ErrorMessage = MessageError.RequiredField)]
     public EventStatus Status { get; set; }
 
-    [Required(ErrorMessage = ErrorMessage.RequiredField)]
+    [Required(ErrorMessage = MessageError.RequiredField)]
     public EventCategory Category { get; set; }
 
-    [Required(ErrorMessage = ErrorMessage.RequiredField)]
+    [Required(ErrorMessage = MessageError.RequiredField)]
     public Guid LocationId { get; set; }
 }

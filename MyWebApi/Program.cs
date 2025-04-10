@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using MyWebApi.Services;
 using MyWebApi.Repositories;
 using MyWebApi.Utils.Validation;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("MyWebApi.Tests")]
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,13 +20,14 @@ builder.Services.AddSwaggerGen();
 // Services
 builder.Services.AddScoped<IEventService, EventService>();
 builder.Services.AddScoped<ILocationService, LocationService>();
+builder.Services.AddScoped<IParticipantService, ParticipantService>();
+builder.Services.AddScoped<IEventParticipantService, EventParticipantService>();
 
 // Repository
 builder.Services.AddScoped<IEventRepository, EventRepository>();
-
-
-
-builder.Services.AddScoped<ILocationRepository, LocationRepository>();
+builder.Services.AddScoped<ILocationRepository, LocationRepository>(); 
+builder.Services.AddScoped<IParticipantRepository, ParticipantRepository>();
+builder.Services.AddScoped<IEventParticipantRepository, EventParticipantRepository>();
 
 // Ajouter le contexte de base de données
 builder.Services.AddDbContext<ApiDbContext>(options =>

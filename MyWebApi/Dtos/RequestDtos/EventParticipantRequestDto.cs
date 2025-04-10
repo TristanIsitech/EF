@@ -1,11 +1,9 @@
-namespace MyWebApi.Models;
+namespace MyWebApi.Dtos;
 
-public class EventParticipant
+public class EventParticipantRequestDto
 {
     public Guid EventId { get; set; }
-    public Event Event { get; set; } 
     public Guid ParticipantId { get; set; }
-    public Participant Participant { get; set; } 
     public DateTime RegistrationDate { get; set; }
     public string? AttendanceStatus { get; set; }
 }
